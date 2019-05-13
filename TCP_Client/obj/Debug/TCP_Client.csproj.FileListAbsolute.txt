@@ -1,0 +1,6 @@
+D:\UnityProject\UnityJungleWar\TCP_Client\bin\Debug\TCP_Client.exe.config
+D:\UnityProject\UnityJungleWar\TCP_Client\bin\Debug\TCP_Client.exe
+D:\UnityProject\UnityJungleWar\TCP_Client\bin\Debug\TCP_Client.pdb
+D:\UnityProject\UnityJungleWar\TCP_Client\obj\Debug\TCP_Client.csproj.CoreCompileInputs.cache
+D:\UnityProject\UnityJungleWar\TCP_Client\obj\Debug\TCP_Client.exe
+D:\UnityProject\UnityJungleWar\TCP_Client\obj\Debug\TCP_Client.pdb

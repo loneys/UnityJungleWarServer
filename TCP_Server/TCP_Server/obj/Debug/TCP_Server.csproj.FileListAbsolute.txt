@@ -1,0 +1,7 @@
+D:\UnityProject\UnityJungleWar\TCP_Server\TCP_Server\bin\Debug\TCP_Server.exe.config
+D:\UnityProject\UnityJungleWar\TCP_Server\TCP_Server\bin\Debug\TCP_Server.exe
+D:\UnityProject\UnityJungleWar\TCP_Server\TCP_Server\bin\Debug\TCP_Server.pdb
+D:\UnityProject\UnityJungleWar\TCP_Server\TCP_Server\obj\Debug\TCP_Server.csprojAssemblyReference.cache
+D:\UnityProject\UnityJungleWar\TCP_Server\TCP_Server\obj\Debug\TCP_Server.csproj.CoreCompileInputs.cache
+D:\UnityProject\UnityJungleWar\TCP_Server\TCP_Server\obj\Debug\TCP_Server.exe
+D:\UnityProject\UnityJungleWar\TCP_Server\TCP_Server\obj\Debug\TCP_Server.pdb
