@@ -20,8 +20,11 @@ namespace TCP_Client
             string msg = Encoding.UTF8.GetString(data, 0, count);
             Console.Write(msg);
 
-            string s = Console.ReadLine();
-            clientSocket.Send(Encoding.UTF8.GetBytes(s));
+            while(true)
+            {
+                string s = Console.ReadLine();
+                clientSocket.Send(Encoding.UTF8.GetBytes(s));
+            }
 
             Console.ReadKey();
             clientSocket.Close();
