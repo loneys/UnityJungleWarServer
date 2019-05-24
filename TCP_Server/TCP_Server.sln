@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_Server", "TCP_Server\TC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_Client", "..\TCP_Client\TCP_Client.csproj", "{9F47F6D5-76A8-4F60-887B-1BA267A32405}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataChangeByte", "..\DataChangeByte\DataChangeByte.csproj", "{2B8278BA-0942-47A7-8090-A1691971DAA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySQL57", "..\MySQL57\MySQL57.csproj", "{6C6A0DBE-42AD-4F7F-BB8C-1F61719AE625}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{9F47F6D5-76A8-4F60-887B-1BA267A32405}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F47F6D5-76A8-4F60-887B-1BA267A32405}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F47F6D5-76A8-4F60-887B-1BA267A32405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B8278BA-0942-47A7-8090-A1691971DAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B8278BA-0942-47A7-8090-A1691971DAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B8278BA-0942-47A7-8090-A1691971DAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B8278BA-0942-47A7-8090-A1691971DAA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C6A0DBE-42AD-4F7F-BB8C-1F61719AE625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C6A0DBE-42AD-4F7F-BB8C-1F61719AE625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C6A0DBE-42AD-4F7F-BB8C-1F61719AE625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C6A0DBE-42AD-4F7F-BB8C-1F61719AE625}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
