@@ -12,6 +12,7 @@ namespace Game_Server.Server
     {
         private Socket clientSocket;
         private Server server;
+        private Message msg = new Message();
 
         public Client() { }
 
@@ -23,7 +24,7 @@ namespace Game_Server.Server
 
         public void Start()
         {
-            clientSocket.BeginReceive(null, 0, 0, SocketFlags.None,ReceviceCallBack,null);
+            clientSocket.BeginReceive(msg.Data, msg.StartIndex, msg.RemainSize, SocketFlags.None,ReceviceCallBack,null);
         }
 
         private void ReceviceCallBack(IAsyncResult ar)
@@ -36,7 +37,9 @@ namespace Game_Server.Server
                     Close();
                 }
                 //TODO 处理接收到的数据
-                clientSocket.BeginReceive(null, 0, 0, SocketFlags.None, ReceviceCallBack, null);
+                msg.ReadMessage(count);
+                Start();
+                //clientSocket.BeginReceive(null, 0, 0, SocketFlags.None, ReceviceCallBack, null);
             }
             catch(Exception e)
             {
