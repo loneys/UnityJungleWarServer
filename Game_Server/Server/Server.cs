@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
+using Game_Server.Controller;
 
 namespace Game_Server.Server
 {
@@ -13,6 +14,7 @@ namespace Game_Server.Server
         private IPEndPoint ipEndPoint;
         private Socket serverSocket;
         private List<Client> clientList;
+        private ControllerManager controllerManager = new ControllerManager();
 
         public Server() { }
         public Server(string ipStr,int port)
