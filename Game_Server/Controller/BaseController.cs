@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
+using Game_Server.Servers;
 
 namespace Game_Server.Controller
 {
@@ -20,6 +21,6 @@ namespace Game_Server.Controller
             }
         }
 
-        public virtual string DefaultHandle(string data) { return null; }
+        public virtual string DefaultHandle(string data,Client clent,Server server) { return null; }
     }
 }

@@ -6,19 +6,24 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
 using Game_Server.Controller;
+using Common;
 
-namespace Game_Server.Server
+namespace Game_Server.Servers
 {
     class Server
     {
         private IPEndPoint ipEndPoint;
         private Socket serverSocket;
         private List<Client> clientList;
-        private ControllerManager controllerManager = new ControllerManager();
+        private ControllerManager controllerManager;
 
         public Server() { }
+        //初始化Server
         public Server(string ipStr,int port)
         {
+            //创建一个controllerManager管理类
+            controllerManager = new ControllerManager(this);
+            //设置服务器IP和端口
             SetIpAndPort(ipStr,port);
         }
         public void SetIpAndPort(string ipStr,int port)
@@ -49,5 +54,17 @@ namespace Game_Server.Server
                 clientList.Remove(client);
             }
         }
+
+        //这个函数是controllerManager处理完消息后，调用此方法，发送消息给客户端
+        public void SendResponse(Client client,RequestCode requestCode,string data)
+        {
+            client.Send(requestCode, data);
+        }
+
+        public void HandleRequest(RequestCode requestCode, ActionCode actioncode, string data, Client client)
+        {
+            controllerManager.HandleRequest(requestCode, actioncode, data, client);
+        }
+
     }
 }
