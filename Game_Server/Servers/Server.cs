@@ -14,7 +14,7 @@ namespace Game_Server.Servers
     {
         private IPEndPoint ipEndPoint;
         private Socket serverSocket;
-        private List<Client> clientList;
+        private List<Client> clientList = new List<Client>();
         private ControllerManager controllerManager;
 
         public Server() { }
@@ -56,9 +56,9 @@ namespace Game_Server.Servers
         }
 
         //这个函数是controllerManager处理完消息后，调用此方法，发送消息给客户端
-        public void SendResponse(Client client,RequestCode requestCode,string data)
+        public void SendResponse(Client client,ActionCode actionCode,string data)
         {
-            client.Send(requestCode, data);
+            client.Send(actionCode, data);
         }
 
         public void HandleRequest(RequestCode requestCode, ActionCode actioncode, string data, Client client)

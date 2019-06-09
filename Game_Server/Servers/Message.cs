@@ -64,9 +64,11 @@ namespace Game_Server.Servers
                     RequestCode requestCode = (RequestCode) BitConverter.ToInt32(data, 4);
                     //解析出actionCode
                     ActionCode actionCode = (ActionCode)BitConverter.ToInt32(data, 8);
+
                     //解析出数据
                     string s = Encoding.UTF8.GetString(data, 12, count-8);
-                    Console.WriteLine("解析出来一条数据:" + s);
+                    Console.WriteLine("\n收到消息:\n" + "类型:" + requestCode + " 动作:" + actionCode + " 数据:" + s);
+
                     //触发回调
                     processDataCallBack(requestCode, actionCode, s);
                     Array.Copy(data, count + 4, data, 0, startIndex - 4 - count);
@@ -79,16 +81,16 @@ namespace Game_Server.Servers
             }
         }
 
-        public static byte[] PackData(RequestCode requestData,string data)
+        public static byte[] PackData(ActionCode actionCode,string data)
         {
             //将消息号转换为字节数组
-            byte[] requestCodeBytes = BitConverter.GetBytes((int)requestData);
+            byte[] requestCodeBytes = BitConverter.GetBytes((int)actionCode);
             //将消息内容转换为字节数组
             byte[] dataBytes = Encoding.UTF8.GetBytes(data);
             //得到消息号和消息内容的长度和
             int dataAmount = requestCodeBytes.Length + dataBytes.Length;
             byte[] dataAmountBytes = BitConverter.GetBytes(dataAmount);
-            return dataAmountBytes.Concat(requestCodeBytes).Concat(dataBytes) as byte[];
+            return dataAmountBytes.Concat(requestCodeBytes).ToArray<byte>().Concat(dataBytes).ToArray<byte>();
         }
     }
 }

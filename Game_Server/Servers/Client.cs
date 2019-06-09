@@ -18,6 +18,14 @@ namespace Game_Server.Servers
         private Message msg = new Message();
         private MySqlConnection mysqlConn;
 
+        public MySqlConnection MySQLConn
+        {
+            get
+            {
+                return mysqlConn;
+            }
+        }
+
         public Client() { }
 
         public Client(Socket clientSocket,Server server)
@@ -71,9 +79,10 @@ namespace Game_Server.Servers
             }
         }
 
-        public void Send(RequestCode requestCode,string data)
+        public void Send(ActionCode actionCode,string data)
         {
-            byte[] bytes = Message.PackData(requestCode, data);
+            byte[] bytes = Message.PackData(actionCode, data);
+            Console.WriteLine("\n发送消息:\n" + "动作:" + actionCode + " 数据:" + data);
             clientSocket.Send(bytes);
         }
     }

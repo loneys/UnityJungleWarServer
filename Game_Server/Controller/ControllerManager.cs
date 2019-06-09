@@ -24,9 +24,10 @@ namespace Game_Server.Controller
         {
             DefaultController defaultController = new DefaultController();
             controllerDict.Add(defaultController.RequestCode, defaultController);
+            controllerDict.Add(RequestCode.User, new UserController());
         }
 
-        public void HandleRequest(RequestCode requestCode,ActionCode actioncode,string data,Client client)
+        public void HandleRequest(RequestCode requestCode,ActionCode actionCode,string data,Client client)
         {
             BaseController controller;
             bool isGet = controllerDict.TryGetValue(requestCode, out controller);
@@ -35,7 +36,7 @@ namespace Game_Server.Controller
                 Console.WriteLine("无法得到" + requestCode + "所对应的Controller,无法处理请求");
                 return;
             }
-            string methodName = Enum.GetName(typeof(ActionCode), actioncode);
+            string methodName = Enum.GetName(typeof(ActionCode), actionCode);
             MethodInfo mi = controller.GetType().GetMethod(methodName);
             if(mi == null)
             {
@@ -45,9 +46,10 @@ namespace Game_Server.Controller
             object o = mi.Invoke(controller, parameters);
             if (o == null || string.IsNullOrEmpty(o as string)) 
             {
+                Console.WriteLine("return 掉了吗");
                 return;
             }
-            server.SendResponse(client, requestCode, o as string);
+            server.SendResponse(client, actionCode, o as string);
         }
     }
 }
