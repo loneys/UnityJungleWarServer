@@ -8,6 +8,7 @@ using System.Net;
 using Common;
 using MySql.Data.MySqlClient;
 using Game_Server.Tool;
+using Game_Server.Model;
 
 namespace Game_Server.Servers
 {
@@ -18,12 +19,38 @@ namespace Game_Server.Servers
         private Message msg = new Message();
         private MySqlConnection mysqlConn;
 
+        private Room room;
+
+        private User user;
+        private Result result;
+
         public MySqlConnection MySQLConn
         {
             get
             {
                 return mysqlConn;
             }
+        }
+
+        public void SetUserData(User user, Result result)
+        {
+            this.user = user;
+            this.result = result;
+        }
+
+        public string GetUserData()
+        {
+            return user.Id + "," + user.Username + "," + result.TotalCount + "," + result.WinCount;
+        }
+
+        public Room Room
+        {
+            set { room = value; }
+        }
+
+        public int GetUserId()
+        {
+            return user.Id;
         }
 
         public Client() { }
@@ -37,6 +64,10 @@ namespace Game_Server.Servers
 
         public void Start()
         {
+            if(clientSocket==null ||clientSocket.Connected==false)
+            {
+                return;
+            }
             clientSocket.BeginReceive(msg.Data, msg.StartIndex, msg.RemainSize, SocketFlags.None,ReceviceCallBack,null);
         }
 
@@ -44,6 +75,10 @@ namespace Game_Server.Servers
         {
             try
             {
+                if (clientSocket == null || clientSocket.Connected == false)
+                {
+                    return;
+                }
                 int count = clientSocket.EndReceive(ar);
                 if (count == 0)
                 {
@@ -75,6 +110,10 @@ namespace Game_Server.Servers
             if(clientSocket!=null)
             {
                 clientSocket.Close();
+                if (room != null)
+                {
+                    room.Close(this);
+                }
                 server.RemoveClient(this);
             }
         }
