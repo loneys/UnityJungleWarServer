@@ -4,3 +4,8 @@ D:\UnityProject\UnityJungleWar\Common\obj\Debug\Common.csprojAssemblyReference.c
 D:\UnityProject\UnityJungleWar\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 D:\UnityProject\UnityJungleWar\Common\obj\Debug\Common.dll
 D:\UnityProject\UnityJungleWar\Common\obj\Debug\Common.pdb
+D:\UnityProject\UnityJungleWarServer\Common\bin\Debug\Common.dll
+D:\UnityProject\UnityJungleWarServer\Common\bin\Debug\Common.pdb
+D:\UnityProject\UnityJungleWarServer\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\UnityProject\UnityJungleWarServer\Common\obj\Debug\Common.dll
+D:\UnityProject\UnityJungleWarServer\Common\obj\Debug\Common.pdb

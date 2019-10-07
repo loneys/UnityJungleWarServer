@@ -18,7 +18,7 @@ namespace Game_Server.Controller
         public String CreateRoom(string data, Client client, Server server)
         {
             server.CreateRoom(client);
-            return ((int)ReturnCode.Success).ToString();
+            return ((int)ReturnCode.Success).ToString() + ',' + ((int)RoleType.Blue).ToString();
         }
 
         public String ListRoom(string data, Client client, Server server)
@@ -59,10 +59,42 @@ namespace Game_Server.Controller
             else
             {
                 room.AddClient(client);
-                string roomData = room.GetRoomData();//"returncode-id,username,totalCount,winCount|returncode-id,username,totalCount,winCount"
+                string roomData = room.GetRoomData();//"returncode,roleType-id,username,totalCount,winCount|returncode-id,username,totalCount,winCount"
                 room.BroadcastMessage(client, ActionCode.UpdateRoom, roomData);
-                return ((int)ReturnCode.Success).ToString() + "-" + roomData;
+                return ((int)ReturnCode.Success).ToString() + ',' + ((int)RoleType.Red).ToString() + "-" + roomData;
             }
+        }
+
+        public string QuitRoom(string data,Client client,Server server)
+        {
+            bool isHouseOwner = client.IsHouseOwner();
+            Room room = client.Room;
+            if (isHouseOwner)
+            {
+                room.BroadcastMessage(client, ActionCode.QuitRoom, ((int)ReturnCode.Success).ToString());
+                room.Close();
+                return ((int)ReturnCode.Success).ToString();
+            }
+            else
+            {
+                
+                client.Room.RemoveClient(client);              
+                
+                room.BroadcastMessage(client, ActionCode.UpdateRoom, room.GetRoomData());
+
+                return ((int)ReturnCode.Success).ToString();
+            }
+        }
+
+        public string QuitBattle(string data, Client client, Server server)
+        {
+            Room room = client.Room;
+            if (room != null)
+            {
+                room.BroadcastMessage(null, ActionCode.QuitBattle, "r");
+                room.Close();
+            }
+            return null;
         }
     }
 }

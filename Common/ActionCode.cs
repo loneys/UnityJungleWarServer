@@ -12,6 +12,16 @@ namespace Common
         ListRoom,
         CreateRoom,
         JoinRoom,
-        UpdateRoom
+        UpdateRoom,
+        QuitRoom,
+        StartGame,
+        ShowTimer,
+        StartPlay,
+        Move,
+        Shoot,
+        Attack,
+        GameOver,
+        UpdateResult,
+        QuitBattle
     }
 }

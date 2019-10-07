@@ -11,11 +11,16 @@ using Common;
 namespace Game_Server.Servers
 {
     class Server
-    {
+    {   
+        //定义一个IP对象
         private IPEndPoint ipEndPoint;
+        //socket类
         private Socket serverSocket;
+        //客户端list，用于连接的客户端
         private List<Client> clientList = new List<Client>();
+        //房间list，用于管理房间
         private List<Room> roomList = new List<Room>();
+        //连接的管理类
         private ControllerManager controllerManager;
 
         public Server() { }
@@ -27,8 +32,10 @@ namespace Game_Server.Servers
             //设置服务器IP和端口
             SetIpAndPort(ipStr,port);
         }
+        //设置需要连接的IP和端口
         public void SetIpAndPort(string ipStr,int port)
-        {
+        {   
+            //创建一个IP对象
             ipEndPoint = new IPEndPoint(IPAddress.Parse(ipStr), port);
         }
 

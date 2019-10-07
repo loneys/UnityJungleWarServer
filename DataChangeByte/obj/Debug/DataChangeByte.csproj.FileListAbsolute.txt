@@ -1,0 +1,6 @@
+D:\UnityProject\UnityJungleWarServer\DataChangeByte\obj\Debug\DataChangeByte.csproj.CoreCompileInputs.cache
+D:\UnityProject\UnityJungleWarServer\DataChangeByte\bin\Debug\DataChangeByte.exe.config
+D:\UnityProject\UnityJungleWarServer\DataChangeByte\bin\Debug\DataChangeByte.exe
+D:\UnityProject\UnityJungleWarServer\DataChangeByte\bin\Debug\DataChangeByte.pdb
+D:\UnityProject\UnityJungleWarServer\DataChangeByte\obj\Debug\DataChangeByte.exe
+D:\UnityProject\UnityJungleWarServer\DataChangeByte\obj\Debug\DataChangeByte.pdb
